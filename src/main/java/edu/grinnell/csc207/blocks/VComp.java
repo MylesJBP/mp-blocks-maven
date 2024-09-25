@@ -36,7 +36,7 @@ public class VComp implements AsciiBlock {
    * @param topBlock
    *   The block on the top.
    * @param bottomBlock
-   *   The block on the bottom.
+   *   ThetoString block on the bottom.
    */
   public VComp(HAlignment alignment, AsciiBlock topBlock,
       AsciiBlock bottomBlock) {
@@ -72,7 +72,17 @@ public class VComp implements AsciiBlock {
    *   if i is outside the range of valid rows.
    */
   public String row(int i) throws Exception {
-    return "";  // STUB
+    int diff = this.width();
+    String rowStr = "";
+    if (this.align ==  HAlignment.LEFT) {
+      rowStr = blocks[i].row(i) + (" ".repeat(diff));
+    } else if (this.align == HAlignment.RIGHT) {
+      rowStr = " ".repeat(diff) + (blocks[i].row(i));
+    } else if (this.align == HAlignment.CENTER) {
+      diff /= 2;
+      rowStr = " ".repeat(diff) + (blocks[i].row(i)) + " ".repeat(diff + 1);
+    }
+    return rowStr;  // STUB
   } // row(int)
 
   /**
@@ -81,7 +91,7 @@ public class VComp implements AsciiBlock {
    * @return the number of rows
    */
   public int height() {
-    return 0;   // STUB
+    return this.blocks.length;   // STUB
   } // height()
 
   /**
@@ -90,7 +100,14 @@ public class VComp implements AsciiBlock {
    * @return the number of columns
    */
   public int width() {
-    return 0;   // STUB
+    int widest;
+    widest = 0;
+    for (int i = 0; i < this.blocks.length; i++) {
+      if (this.blocks[i].width() > widest) {
+        widest = this.blocks[i].width();
+      }
+    }
+    return widest;   // STUB
   } // width()
 
   /**

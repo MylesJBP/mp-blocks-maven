@@ -62,14 +62,14 @@ public class Grid implements AsciiBlock {
    *   If the row is invalid.
    */
   public String row(int i) throws Exception {
-    String dummy = "";
+    String gridItem = "";
     for (int j = 0; j < this.element.height(); j++) {
-      dummy = dummy.concat(this.element.row(j).repeat(hreps));
+      gridItem = gridItem.concat(this.element.row(j).repeat(hreps));
       if ((j + 1) != this.element.height()){
-        dummy = dummy.concat("\n");
+        gridItem = gridItem.concat("\n");
       }
     }
-    return dummy;
+    return gridItem;
   } // row(int)
 
   /**
