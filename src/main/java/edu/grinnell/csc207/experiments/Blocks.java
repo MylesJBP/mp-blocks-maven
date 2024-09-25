@@ -66,7 +66,8 @@ public class Blocks {
     AsciiBlock boxedboxedLine = new Boxed(boxedLine);
     AsciiBlock boxedExes = new Boxed(exes);
     AsciiBlock surroundExes = new Surrounded(exes, '#');
-    AsciiBlock gridHello = new Grid(new Boxed(new Empty()), 3, 2);
+    AsciiBlock gridHello = new Grid(new Line("Hello"), 3, 4);
+    AsciiBlock gridEmpty = new Grid(new Boxed(new Empty()), 3, 2);
 
     pen.println("Original Values");
     figure(pen, "line", line);
@@ -79,6 +80,7 @@ public class Blocks {
     pen.println("Surrounded:");
     figure(pen, "Surround", surroundExes);
     figure(pen, "grid",gridHello);
+    figure(pen, "more complex grid",gridEmpty);
 
     separator(pen);
     pen.println("After changing the line.");
