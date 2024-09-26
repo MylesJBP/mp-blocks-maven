@@ -152,9 +152,9 @@ public class Blocks {
     figure(pen, "v19", v19);
     figure(pen, "Left composition",
         new VComp(HAlignment.LEFT, new AsciiBlock[] {v1, v7, v11, v19}));
-    figure(pen, "Left composition",
+    figure(pen, "Center composition",
         new VComp(HAlignment.CENTER, new AsciiBlock[] {v1, v7, v11, v19}));
-    figure(pen, "Left composition",
+    figure(pen, "Right composition",
         new VComp(HAlignment.RIGHT, new AsciiBlock[] {v1, v7, v11, v19}));
 
     pen.close();

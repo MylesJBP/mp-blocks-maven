@@ -72,18 +72,62 @@ public class VComp implements AsciiBlock {
    *   if i is outside the range of valid rows.
    */
   public String row(int i) throws Exception {
-    int diff = this.width();
     String rowStr = "";
+    int heightSoFar = 0;
     if (this.align ==  HAlignment.LEFT) {
-      rowStr = blocks[i].row(i) + (" ".repeat(diff));
+      for (int j = 0; j < this.blocks.length; j++) {
+        int diff = this.width() - blocks[j].width();
+        if ((blocks[j].height() + heightSoFar) - 1 >= i) {
+          rowStr = rowStr.concat(blocks[j].row(i - heightSoFar)) + " ".repeat(diff);
+          break;
+        }
+        else {
+          heightSoFar += blocks[j].height();
+        }
+      }
     } else if (this.align == HAlignment.RIGHT) {
-      rowStr = " ".repeat(diff) + (blocks[i].row(i));
+      for (int j = 0; j < this.blocks.length; j++) {
+        int diff = this.width() - blocks[j].width();
+        if ((blocks[j].height() + heightSoFar) - 1 >= i) {
+          rowStr = " ".repeat(diff) + rowStr.concat(blocks[j].row(i - heightSoFar));
+          break;
+        }
+        else {
+          heightSoFar += blocks[j].height();
+        }
+      }
     } else if (this.align == HAlignment.CENTER) {
-      diff /= 2;
-      rowStr = " ".repeat(diff) + (blocks[i].row(i)) + " ".repeat(diff + 1);
+      for (int j = 0; j < this.blocks.length; j++) {
+        int diff = this.width() - blocks[j].width();
+        if ((blocks[j].height() + heightSoFar) - 1 >= i) {
+          if (diff % 2 != 0){
+            diff /= 2;
+            rowStr = " ".repeat(diff) + rowStr.concat(blocks[j].row(i - heightSoFar)) + " ".repeat(diff + 1);
+            break;
+          }
+          else {
+            diff /= 2;
+            rowStr = " ".repeat(diff) + rowStr.concat(blocks[j].row(i - heightSoFar)) + " ".repeat(diff);
+            break;
+          }
+        }
+        else {
+          heightSoFar += blocks[j].height();
+        }
+      }
     }
     return rowStr;  // STUB
   } // row(int)
+
+
+
+  public String getRows(AsciiBlock block) throws Exception {
+    String result = "";
+    for (int i = 0; i < block.height(); i++) {
+        result = result.concat(block.row(i));
+    } // for
+    return result.toString();
+  }
 
   /**
    * Determine how many rows are in the block.
@@ -91,7 +135,11 @@ public class VComp implements AsciiBlock {
    * @return the number of rows
    */
   public int height() {
-    return this.blocks.length;   // STUB
+    int totalHeight = 0;
+    for (int i = 0; i < blocks.length; i++) {
+      totalHeight += blocks[i].height();
+    }
+    return totalHeight;   // STUB
   } // height()
 
   /**
