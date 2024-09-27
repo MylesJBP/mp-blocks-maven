@@ -12,6 +12,7 @@ import edu.grinnell.csc207.blocks.Rect;
 import edu.grinnell.csc207.blocks.VComp;
 import edu.grinnell.csc207.blocks.VAlignment;
 import edu.grinnell.csc207.blocks.Surrounded;
+import edu.grinnell.csc207.blocks.ChessBoard;
 
 import java.io.PrintWriter;
 
@@ -68,6 +69,9 @@ public class Blocks {
     AsciiBlock surroundExes = new Surrounded(exes, '#');
     AsciiBlock gridHello = new Grid(new Line("Hello"), 3, 4);
     AsciiBlock gridEmpty = new Grid(new Boxed(new Empty()), 3, 2);
+
+    AsciiBlock ChessBoardCool = new Boxed(new ChessBoard("x", 4, 4));
+    figure(pen, "Chess Test", ChessBoardCool);
 
     pen.println("Original Values");
     figure(pen, "line", line);
