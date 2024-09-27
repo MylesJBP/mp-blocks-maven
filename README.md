@@ -5,13 +5,13 @@ Explorations with the creation, composition, and mutation of blocks of ASCII tex
 **Authors**
 
 * Samuel A. Rebelsky (starter code).
-* Your Name Here
-* Your name Here
+* Myles Bohrer-Purnell
+* Benjamin Sheeley
 
 **Notes for the reader**
 
-PLEASE ADD NOTES FOR SOMEONE NOT FAMILIAR WITH THE PROJECT.
+Creates Ascii artwork using many different classes. Added ChessBoard. Art80x24.java contains 4 orbs with a pattern inside using Flips and Comps.
 
 ---
 
-This code may be found at <https://github.com/YOUR_USERNAME/YOU_REPO>. The original project can be found at <https://github.com/Grinnell-CSC207/mp-blocks-maven>.
+This code may be found at <https://github.com/MylesJBP/mp-blocks-maven/tree/main>. The original project can be found at <https://github.com/Grinnell-CSC207/mp-blocks-maven>.
