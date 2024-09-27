@@ -6,8 +6,8 @@ import java.util.Arrays;
  * The vertical composition of blocks.
  *
  * @author Samuel A. Rebelsky
- * @author Your Name Here
- * @author Your Name Here
+ * @author Ben Sheeley
+ * @author Myles Bohrer-Purnell
  */
 public class VComp implements AsciiBlock {
   // +--------+------------------------------------------------------------
