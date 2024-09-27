@@ -87,7 +87,7 @@ public class HFlip implements AsciiBlock {
    */
   public boolean eqv(AsciiBlock other) {
     if (other instanceof HFlip) {
-      if (AsciiBlock.eq(other, this)) {
+      if (AsciiBlock.equal(other, this)) {
         return true;
       }
       else {

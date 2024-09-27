@@ -76,6 +76,16 @@ public class VFlip implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(AsciiBlock other) {
-    return false;       // STUB
+    if (other instanceof VFlip) {
+      if (AsciiBlock.equal(other, this)) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+    else {
+      return false;
+    }     // STUB
   } // eqv(AsciiBlock)
 } // class VFlip

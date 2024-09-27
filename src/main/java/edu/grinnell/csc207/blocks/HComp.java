@@ -156,7 +156,7 @@ public class HComp implements AsciiBlock {
    */
   public boolean eqv(AsciiBlock other) {
     if (other instanceof HComp) {
-      if (AsciiBlock.eq(other, this)) {
+      if (AsciiBlock.equal(other, this)) {
         return true;
       }
       else {
