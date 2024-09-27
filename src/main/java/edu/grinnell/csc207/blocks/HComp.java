@@ -74,13 +74,27 @@ public class HComp implements AsciiBlock {
     String resultString = "";
     int diffHeight;
     if(this.align == VAlignment.CENTER){
+      // go through each AsciiBlock in blocks
       for(int j = 0; j < this.blocks.length; j++){
+        // get difference of AsciiBlock height and composed block height
         diffHeight = (this.height() - this.blocks[j].height())/2;
-        if(i >= diffHeight && i < (this.height()-(diffHeight+1))){
-          resultString = resultString.concat(this.blocks[j].row(i-diffHeight));
+        // check if difference is even
+        if(diffHeight % 2 == 0){
+          // if the element would be in the center given the differences in height
+          if(i >= diffHeight && i < (this.height()-(diffHeight))){
+            // print element row
+            resultString = resultString.concat(this.blocks[j].row(i-diffHeight));
+          } else {
+            // else print blank lines
+            resultString = resultString.concat(" ".repeat(blocks[j].width()));
+          } // else
         } else {
-          resultString = resultString.concat(" ".repeat(blocks[j].width()));
-        } // else
+          if(i >= diffHeight && i < (this.height()-(diffHeight+1))){
+            resultString = resultString.concat(this.blocks[j].row(i-diffHeight));
+          } else {
+            resultString = resultString.concat(" ".repeat(blocks[j].width()));
+          } // else
+        }
       } // for
     } else if(this.align == VAlignment.TOP){
       for(int j = 0; j < this.blocks.length; j++){
@@ -141,6 +155,16 @@ public class HComp implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(AsciiBlock other) {
-    return false;       // STUB
-  } // eqv(AsciiBlock)
-} // class HComp
+    if (other instanceof HComp) {
+      if (AsciiBlock.eq(other, this)) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+    else {
+      return false;
+    }     // STUB
+  }
+}// class HComp
