@@ -102,16 +102,10 @@ public class Boxed implements AsciiBlock {
    */
   public boolean eqv(AsciiBlock other) {
     if (other instanceof Boxed) {
-      if (AsciiBlock.equal(other, this)) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
+      return AsciiBlock.equal(other, this);
+    } else {
       return false;
-    }     // STUB
+    } // if/else
   } // eqv(AsciiBlock)
 
   /**

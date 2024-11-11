@@ -1,7 +1,10 @@
 package edu.grinnell.csc207.experiments;
 
+import java.io.PrintWriter;
+
 import edu.grinnell.csc207.blocks.AsciiBlock;
 import edu.grinnell.csc207.blocks.Boxed;
+import edu.grinnell.csc207.blocks.ChessBoard;
 import edu.grinnell.csc207.blocks.Empty;
 import edu.grinnell.csc207.blocks.Grid;
 import edu.grinnell.csc207.blocks.HAlignment;
@@ -9,12 +12,9 @@ import edu.grinnell.csc207.blocks.HComp;
 import edu.grinnell.csc207.blocks.Line;
 import edu.grinnell.csc207.blocks.Lines;
 import edu.grinnell.csc207.blocks.Rect;
-import edu.grinnell.csc207.blocks.VComp;
-import edu.grinnell.csc207.blocks.VAlignment;
 import edu.grinnell.csc207.blocks.Surrounded;
-import edu.grinnell.csc207.blocks.ChessBoard;
-
-import java.io.PrintWriter;
+import edu.grinnell.csc207.blocks.VAlignment;
+import edu.grinnell.csc207.blocks.VComp;
 
 /**
  * Experiments with ASCII blocks.
@@ -70,8 +70,8 @@ public class Blocks {
     AsciiBlock gridHello = new Grid(new Line("Hello"), 3, 4);
     AsciiBlock gridEmpty = new Grid(new Boxed(new Empty()), 3, 2);
 
-    AsciiBlock ChessBoardCool = new Boxed(new ChessBoard("x", 4, 4));
-    figure(pen, "Chess Test", ChessBoardCool);
+    AsciiBlock chessBoardCool = new Boxed(new ChessBoard("x", 4, 4));
+    figure(pen, "Chess Test", chessBoardCool);
 
     pen.println("Original Values");
     figure(pen, "line", line);
@@ -83,8 +83,8 @@ public class Blocks {
     separator(pen);
     pen.println("Surrounded:");
     figure(pen, "Surround", surroundExes);
-    figure(pen, "grid",gridHello);
-    figure(pen, "more complex grid",gridEmpty);
+    figure(pen, "grid", gridHello);
+    figure(pen, "more complex grid", gridEmpty);
 
     separator(pen);
     pen.println("After changing the line.");

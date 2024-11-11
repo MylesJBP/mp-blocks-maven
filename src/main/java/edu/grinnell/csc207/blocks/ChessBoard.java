@@ -26,7 +26,7 @@ public class ChessBoard implements AsciiBlock {
   int width;
 
    /**
-   * Board spcae character
+   * Board space character.
    */
   String ch;
 
@@ -37,7 +37,7 @@ public class ChessBoard implements AsciiBlock {
   /**
    * Build a ChessBoard.
    *
-   * @param ch
+   * @param boardCh
    *   The character from which we build the rectangle.
    *
    * @param chessWidth
@@ -46,9 +46,9 @@ public class ChessBoard implements AsciiBlock {
    * @param chessHeight
    *   The height of the rectangle.
    */
-  public ChessBoard(String ch, int chessWidth, int chessHeight)
+  public ChessBoard(String boardCh, int chessWidth, int chessHeight)
       throws Exception {
-    // Sanity check
+    // Check if board size inputs are valid.
     if (chessWidth <= 0) {
       throw new Exception("ChessBoard width must be positive");
     } else if (chessHeight <= 0) {
@@ -57,7 +57,7 @@ public class ChessBoard implements AsciiBlock {
     // Set up the fields
     this.height = chessHeight;
     this.width = chessWidth;
-    this.ch = ch;
+    this.ch = boardCh;
   } // Rect(String)
 
   // +--------------------+------------------------------------------
@@ -78,21 +78,21 @@ public class ChessBoard implements AsciiBlock {
     if ((i < 0) || (i >= this.height())) {
       throw new Exception("Invalid row " + i);
     } // if
-    if(this.width() == 1){
-      if(i % 2 == 0){
-      this.row = ch;
-      } else{
+    if (this.width() == 1) {
+      if (i % 2 == 0) {
+        this.row = ch;
+      } else {
         this.row = " ";
-      } // else
-    } else if(i % 2 == 0){
+      } // if/else
+    } else if (i % 2 == 0) {
       if (this.width() % 2 == 0) {
-        this.row = new String(ch.toString() + " ").repeat(this.width()/2);
-      } else{
-        this.row = new String(ch + " ").repeat(this.width()/2) + ch;
+        this.row = new String(ch.toString() + " ").repeat(this.width() / 2);
+      } else {
+        this.row = new String(ch + " ").repeat(this.width() / 2) + ch;
       } // else
-    } else{
-        this.row = new String(" " + ch).repeat(this.width()/2);
-    } // else 
+    } else {
+      this.row = new String(" " + ch).repeat(this.width() / 2);
+    } // else
     return this.row;
   } // row(int)
 
@@ -125,16 +125,10 @@ public class ChessBoard implements AsciiBlock {
    */
   public boolean eqv(AsciiBlock other) {
     if (other instanceof ChessBoard) {
-      if (AsciiBlock.eq(other, this)) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
+      return AsciiBlock.equal(other, this);
+    } else {
       return false;
-    }     // STUB
+    } // if/else
   } // eqv(AsciiBlock)
 } // class Rect
 

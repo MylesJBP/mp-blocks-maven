@@ -74,60 +74,64 @@ public class VComp implements AsciiBlock {
   public String row(int i) throws Exception {
     String rowStr = "";
     int heightSoFar = 0;
-    if (this.align ==  HAlignment.LEFT) {
+    if (this.align == HAlignment.LEFT) {
       for (int j = 0; j < this.blocks.length; j++) {
         int diff = this.width() - blocks[j].width();
         if ((blocks[j].height() + heightSoFar) - 1 >= i) {
           rowStr = rowStr.concat(blocks[j].row(i - heightSoFar)) + " ".repeat(diff);
           break;
-        }
-        else {
+        } else {
           heightSoFar += blocks[j].height();
-        }
-      }
+        } // if/else
+      } // for
     } else if (this.align == HAlignment.RIGHT) {
       for (int j = 0; j < this.blocks.length; j++) {
         int diff = this.width() - blocks[j].width();
         if ((blocks[j].height() + heightSoFar) - 1 >= i) {
           rowStr = " ".repeat(diff) + rowStr.concat(blocks[j].row(i - heightSoFar));
           break;
-        }
-        else {
+        } else {
           heightSoFar += blocks[j].height();
-        }
-      }
+        } // if/else
+      } // for
     } else if (this.align == HAlignment.CENTER) {
       for (int j = 0; j < this.blocks.length; j++) {
         int diff = this.width() - blocks[j].width();
         if ((blocks[j].height() + heightSoFar) - 1 >= i) {
-          if (diff % 2 != 0){
+          if (diff % 2 != 0) {
             diff /= 2;
-            rowStr = " ".repeat(diff) + rowStr.concat(blocks[j].row(i - heightSoFar)) + " ".repeat(diff + 1);
+            rowStr = " ".repeat(diff) + rowStr.concat(blocks[j].row(i - heightSoFar))
+                     + " ".repeat(diff + 1);
             break;
-          }
-          else {
+          } else {
             diff /= 2;
-            rowStr = " ".repeat(diff) + rowStr.concat(blocks[j].row(i - heightSoFar)) + " ".repeat(diff);
+            rowStr = " ".repeat(diff) + rowStr.concat(blocks[j].row(i - heightSoFar))
+                     + " ".repeat(diff);
             break;
-          }
-        }
-        else {
+          } // if/else
+        } else {
           heightSoFar += blocks[j].height();
-        }
-      }
-    }
-    return rowStr;  // STUB
+        } // if/else
+      } // for
+    } // else if
+    return rowStr;
   } // row(int)
 
 
-
+  /**
+   * Returns a row of an AsciiBlock.
+   *
+   * @param block // AsciiBlock of use
+   * @return // A string with a row of the block
+   * @throws Exception // throw exception if failure to get row elements
+   */
   public String getRows(AsciiBlock block) throws Exception {
     String result = "";
     for (int i = 0; i < block.height(); i++) {
-        result = result.concat(block.row(i));
+      result = result.concat(block.row(i));
     } // for
     return result.toString();
-  }
+  } // getRows()
 
   /**
    * Determine how many rows are in the block.
@@ -138,8 +142,8 @@ public class VComp implements AsciiBlock {
     int totalHeight = 0;
     for (int i = 0; i < blocks.length; i++) {
       totalHeight += blocks[i].height();
-    }
-    return totalHeight;   // STUB
+    } // for
+    return totalHeight;
   } // height()
 
   /**
@@ -153,9 +157,9 @@ public class VComp implements AsciiBlock {
     for (int i = 0; i < this.blocks.length; i++) {
       if (this.blocks[i].width() > widest) {
         widest = this.blocks[i].width();
-      }
-    }
-    return widest;   // STUB
+      } // if
+    } // for
+    return widest;
   } // width()
 
   /**
@@ -169,15 +173,9 @@ public class VComp implements AsciiBlock {
    */
   public boolean eqv(AsciiBlock other) {
     if (other instanceof VComp) {
-      if (AsciiBlock.equal(other, this)) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
+      return AsciiBlock.equal(other, this);
+    } else {
       return false;
-    }     // STUB
+    } // if/else
   } // eqv(AsciiBlock)
 } // class VComp

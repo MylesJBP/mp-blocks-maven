@@ -75,7 +75,7 @@ public class Surrounded implements AsciiBlock {
    * @return the number of rows
    */
   public int height() {
-    return this.contents.height()+2;
+    return this.contents.height() + 2;
   } // height()
 
   /**
@@ -84,7 +84,7 @@ public class Surrounded implements AsciiBlock {
    * @return the number of columns
    */
   public int width() {
-    return this.contents.width()+2; 
+    return this.contents.width() + 2;
   } // width()
 
   /**
@@ -98,15 +98,9 @@ public class Surrounded implements AsciiBlock {
    */
   public boolean eqv(AsciiBlock other) {
     if (other instanceof Surrounded) {
-      if (AsciiBlock.equal(other, this)) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
+      return AsciiBlock.equal(other, this);
+    } else {
       return false;
-    }     // STUB
+    } // if/else
   } // eqv(AsciiBlock)
 } // class Surrounded

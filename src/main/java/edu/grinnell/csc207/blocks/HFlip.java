@@ -48,14 +48,14 @@ public class HFlip implements AsciiBlock {
   public String row(int i) throws Exception {
     String finalString = "";
     String[] origString;
-    try{
+    try {
       origString = this.block.row(i).split("");
-      for(int j = (origString.length-1); j >= 0; j--){
+      for (int j = (origString.length - 1); j >= 0; j--) {
         finalString = finalString.concat(origString[j]);
-      }
-    } catch (Exception e){
+      } // for
+    } catch (Exception e) {
       System.err.printf("*** ERROR: Invalid row %d ***\n", i);
-    }
+    } // try/catch
     return finalString;
   } // row(int)
 
@@ -88,15 +88,9 @@ public class HFlip implements AsciiBlock {
    */
   public boolean eqv(AsciiBlock other) {
     if (other instanceof HFlip) {
-      if (AsciiBlock.equal(other, this)) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
+      return AsciiBlock.equal(other, this);
+    } else {
       return false;
-    }     // STUB
+    } // if/else
   } // eqv(AsciiBlock)
 } // class HFlip
