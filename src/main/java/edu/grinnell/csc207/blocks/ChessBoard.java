@@ -4,6 +4,8 @@ package edu.grinnell.csc207.blocks;
  * A mutable rectangular block of one repeated character.
  *
  * @author Samuel A. Rebelsky
+ * @author Benjamin Sheeley
+ * @author Myles Bohrer-Purnell
  */
 public class ChessBoard implements AsciiBlock {
   // +--------+------------------------------------------------------------

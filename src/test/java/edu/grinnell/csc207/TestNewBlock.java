@@ -16,7 +16,7 @@ public class TestNewBlock {
   // | Tests |
   // +-------+
 
-@Test
+  @Test
   public void testChess() throws Exception {
     assertEquals("X\n", TestUtils.toString(new ChessBoard("X", 1, 1)),
         "R: 1x1 ChessBoard");
@@ -28,7 +28,7 @@ public class TestNewBlock {
         "R: 3x2 ChessBoard");
   } // testRect()
 
-@Test
+  @Test
   public void testBoxed() throws Exception {
     assertEquals("/----\\\n" + //
                   "|x x |\n" + //
@@ -37,5 +37,22 @@ public class TestNewBlock {
                   "| x x|\n" + //
                   "\\----/\n" ,
                   TestUtils.toString(new Boxed(new ChessBoard("x", 4, 4))));
+  }
+
+
+  @Test
+  public void testEmpty() throws Exception {
+    assertEquals("/----\\\n" + //
+                  "|    |\n" + //
+                  "|    |\n" + //
+                  "|    |\n" + //
+                  "|    |\n" + //
+                  "\\----/\n" ,
+        TestUtils.toString(new Boxed(new ChessBoard(" ", 4, 4))),
+        "4x4  Blank Boxed ChessBoard");
+
+
+    assertEquals(" \n", TestUtils.toString(new ChessBoard(" ", 1, 1)), "1 x 1 Blank Chessboard");
+
   }
 } // class TestNewBlock
