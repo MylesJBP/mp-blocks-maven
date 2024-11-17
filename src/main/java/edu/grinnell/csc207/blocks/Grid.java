@@ -63,12 +63,8 @@ public class Grid implements AsciiBlock {
    */
   public String row(int i) throws Exception {
     String gridItem = "";
-    for (int j = 0; j < this.element.height(); j++) {
-      gridItem = gridItem.concat(this.element.row(j).repeat(hreps));
-      if ((j + 1) != this.element.height()) {
-        gridItem = gridItem.concat("\n");
-      } // if
-    } // for
+    int rowNum = i % this.element.height();
+    gridItem = gridItem.concat(this.element.row(rowNum).repeat(hreps));
     return gridItem;
   } // row(int)
 
@@ -78,7 +74,10 @@ public class Grid implements AsciiBlock {
    * @return the number of rows
    */
   public int height() {
-    return vreps;
+    if (this.element.height() == 0) {
+      return 0;
+    } // if
+    return this.vreps * this.element.height();
   } // height()
 
   /**
@@ -87,7 +86,10 @@ public class Grid implements AsciiBlock {
    * @return the number of columns
    */
   public int width() {
-    return hreps;
+    if (this.element.width() == 0) {
+      return 0;
+    } // if
+    return this.hreps * this.element.width();
   } // width()
 
   /**
