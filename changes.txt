@@ -1,0 +1,31 @@
+# Changes Checklist for MP3 Redo
+Myles Bohrer-Purnell, Ben Sheeley
+CSC-207 2024Fa
+Samuel Rebelsky
+--- 
+
+The comments for our initial submission of MP1 were as follows:
+1. You seem to be failing some of the test cases.
+We fixed this issue through fixing errors in our HComp and Grid classes. 
+
+HComp was fixed through our "row" method, where an extra varaible "diffHeightCheck", which got the height difference
+between a given AsciiBlock and the overall height, was used to check if that difference was even or odd. This was
+previously an issue because we were initially checking the difference with "diffHeight", which took the
+difference / 2 (to get the difference from each end). This did not accurately
+return the overall difference, causing issues with our row identification process.
+
+Grid was fixed through our "row", "height", and "width" methods. Fixing the row method required removing a lot of the
+code so that we were only returning a single row of an AsciiBlock rather than the entire AsciiBlock every time it was called.
+The height method was fixed by returning the number of vreps x the height of the AsciiBlock rather than just returning vreps.
+The width method was fixed by returning the number of hreps x the width of the AsciiBlock rather than just returning hreps.
+
+2. Make sure to fix your styling issues with indentations, whitespaces, and stub comments.
+We just went through and fixed all of the checkstyle erros in the class files using mvn checkstyle:check.
+There were some in basically every file so there aren't any specific places of importance. It mainly consisted of fixing
+trailing spaces and adding comments for methods and loops.
+
+3. Missing a couple of names for your class headers
+We added our names to all of the classes that we contributed to. 
+We also changed the class description for our ChessBoard class.
+
+4. Mising adequate test cases for you new block.
