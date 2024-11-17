@@ -1,7 +1,7 @@
 package edu.grinnell.csc207.blocks;
 
 /**
- * A mutable rectangular block of one repeated character.
+ * A chessboard block consisting of alternating characters.
  *
  * @author Samuel A. Rebelsky
  * @author Benjamin Sheeley

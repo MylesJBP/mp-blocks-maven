@@ -1,15 +1,17 @@
 package edu.grinnell.csc207;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
-import edu.grinnell.csc207.blocks.ChessBoard;
-import edu.grinnell.csc207.blocks.Rect;
+
 import edu.grinnell.csc207.blocks.Boxed;
+import edu.grinnell.csc207.blocks.ChessBoard;
 
 
 /**
  * Tests of the new block.
+ * 
+ * @author Ben Sheeley
+ * @author Myles Bohrer-Purnell
  */
 public class TestNewBlock {
   // +-------+-------------------------------------------------------
