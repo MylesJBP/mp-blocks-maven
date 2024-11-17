@@ -4,7 +4,7 @@ CSC-207 2024Fa
 Samuel Rebelsky
 --- 
 
-The comments for our initial submission of MP1 were as follows:
+The comments for our initial submission of MP3 were as follows:
 1. You seem to be failing some of the test cases.
 We fixed this issue through fixing errors in our HComp and Grid classes. 
 
