@@ -74,13 +74,15 @@ public class HComp implements AsciiBlock {
   public String row(int i) throws Exception {
     String resultString = "";
     int diffHeight;
+    int diffHeightCheck;
     if (this.align == VAlignment.CENTER) {
       // go through each AsciiBlock in blocks
       for (int j = 0; j < this.blocks.length; j++) {
         // get difference of AsciiBlock height and composed block height
         diffHeight = (this.height() - this.blocks[j].height()) / 2;
+        diffHeightCheck = this.height() - this.blocks[j].height();
         // check if difference is even
-        if (diffHeight % 2 == 0) {
+        if (diffHeightCheck % 2 == 0) {
           // if the element would be in the center given the differences in height
           if (i >= diffHeight && i < (this.height() - (diffHeight))) {
             // print element row
